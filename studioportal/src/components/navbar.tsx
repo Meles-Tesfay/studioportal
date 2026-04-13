@@ -1,19 +1,10 @@
-"use client";
-
-import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Logo from "./logo";
 import { ArrowRight, Menu } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <motion.header 
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed inset-x-0 top-0 z-50 flex h-20 items-center justify-between border-b border-zinc-800/50 bg-[#09090b]/80 px-6 backdrop-blur-xl sm:px-12 lg:px-16"
-    >
+    <header className="fixed inset-x-0 top-0 z-50 flex h-20 items-center justify-between border-b border-zinc-800/50 bg-[#09090b]/80 px-6 backdrop-blur-xl sm:px-12 lg:px-16">
       <Link href="/">
         <Logo />
       </Link>
@@ -43,6 +34,6 @@ export default function Navbar() {
           <Menu className="h-5 w-5" />
         </button>
       </div>
-    </motion.header>
+    </header>
   );
 }

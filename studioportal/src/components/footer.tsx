@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "./logo";
-import { Link, Github, Twitter, Linkedin, Facebook } from "lucide-react";
+import { Globe, Lock, Layers, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,10 +16,10 @@ export default function Footer() {
             elite design and development studios. Built for speed, clarity, and brand status.
           </p>
           <div className="flex items-center gap-5 text-zinc-400">
-            <a href="#" className="hover:text-zinc-100 transition-colors"><Twitter className="h-5 w-5" /></a>
-            <a href="#" className="hover:text-zinc-100 transition-colors"><Linkedin className="h-5 w-5" /></a>
-            <a href="#" className="hover:text-zinc-100 transition-colors"><Github className="h-5 w-5" /></a>
-            <a href="#" className="hover:text-zinc-100 transition-colors"><Facebook className="h-5 w-5" /></a>
+            <a href="#" className="hover:text-zinc-100 transition-colors"><Globe className="h-5 w-5" /></a>
+            <a href="#" className="hover:text-zinc-100 transition-colors"><Layers className="h-5 w-5" /></a>
+            <a href="#" className="hover:text-zinc-100 transition-colors"><Lock className="h-5 w-5" /></a>
+            <a href="#" className="hover:text-zinc-100 transition-colors"><ArrowUpRight className="h-5 w-5" /></a>
           </div>
         </div>
 

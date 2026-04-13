@@ -1,7 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { 
+import { cloneElement, isValidElement } from "react";
+import type { ReactElement, ReactNode } from "react";
+import {
   LayoutDashboard, 
   Users, 
   CreditCard, 
@@ -16,26 +15,11 @@ import {
   Lock
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
 export default function Home() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
-  };
-
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#09090b] text-zinc-100 selection:bg-zinc-500/30">
       <Navbar />
@@ -50,43 +34,26 @@ export default function Home() {
       <main className="relative z-10 pt-20">
         {/* Hero Section */}
         <section className="mx-auto max-w-7xl px-6 py-24 sm:px-12 lg:px-16 lg:py-32">
-          <motion.div 
-            variants={container}
-            initial="hidden"
-            animate="show"
-            className="flex flex-col items-center text-center"
-          >
+          <div className="flex flex-col items-center text-center">
             {/* Badge */}
-            <motion.div 
-              variants={item}
-              className="mb-10 flex items-center gap-2 rounded-full border border-zinc-800/80 bg-zinc-900/40 px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-all hover:bg-zinc-800/60"
-            >
+            <div className="mb-10 flex items-center gap-2 rounded-full border border-zinc-800/80 bg-zinc-900/40 px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-all hover:bg-zinc-800/60">
               <Sparkles className="h-3.5 w-3.5 text-zinc-400" />
               <span className="text-zinc-400">Phase 1: Infrastructure Live</span>
-            </motion.div>
+            </div>
 
             {/* Hero Heading */}
-            <motion.h1 
-              variants={item}
-              className="max-w-5xl text-[clamp(2.5rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight sm:text-7xl lg:text-8xl"
-            >
+            <h1 className="max-w-5xl text-[clamp(2.5rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight sm:text-7xl lg:text-8xl">
               The Operating <span className="text-zinc-600">System</span> <br/> 
               for Elite Studios.
-            </motion.h1>
+            </h1>
 
-            <motion.p 
-              variants={item}
-              className="mt-10 max-w-3xl text-lg leading-relaxed text-zinc-500 sm:text-2xl"
-            >
+            <p className="mt-10 max-w-3xl text-lg leading-relaxed text-zinc-500 sm:text-2xl">
               StudioPortal centralizes your agency operations into a single, cinematic 
               interface. Manage clients, track project milestones, and automate 
               invoicing with unmatched precision and brand status.
-            </motion.p>
+            </p>
 
-            <motion.div 
-              variants={item}
-              className="mt-14 flex flex-col gap-5 sm:flex-row sm:gap-8"
-            >
+            <div className="mt-14 flex flex-col gap-5 sm:flex-row sm:gap-8">
               <Link 
                 href="/dashboard" 
                 className="group relative flex h-16 items-center justify-center gap-3 overflow-hidden rounded-2xl bg-zinc-100 px-10 text-xl font-bold text-black transition-all hover:scale-[1.02] active:scale-[0.98]"
@@ -97,8 +64,8 @@ export default function Home() {
               <button className="flex h-16 items-center justify-center gap-3 rounded-2xl border border-zinc-800/60 bg-zinc-900/30 px-10 text-xl font-semibold text-zinc-300 backdrop-blur-md transition-all hover:bg-zinc-800/50">
                 View Showcase
               </button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </section>
 
         {/* Feature Grid Simulation (Glass Cards) */}
@@ -133,13 +100,7 @@ export default function Home() {
 
         {/* Cinematic Dashboard Preview */}
         <section id="showcase" className="mx-auto mt-24 max-w-7xl px-6 sm:px-12 lg:px-16 overflow-hidden">
-          <motion.div 
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative"
-          >
+          <div className="group relative">
             {/* Glossy Border Effect */}
             <div className="absolute -inset-1 rounded-[2.2rem] bg-gradient-to-b from-zinc-700/30 to-transparent opacity-50 blur-xl transition-all group-hover:opacity-100 group-hover:duration-500" />
             
@@ -162,14 +123,17 @@ export default function Home() {
               
               {/* Content Area with Generated Image */}
               <div className="flex-1 overflow-hidden">
-                <img 
-                  src="/showcase-preview.png" 
+                <Image
+                  src="/showcase-preview.png"
                   alt="StudioPortal Dashboard Preview"
+                  width={1600}
+                  height={900}
+                  priority
                   className="h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-[1.03] group-hover:opacity-100"
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* Global Security / Trust Section */}
@@ -210,7 +174,7 @@ export default function Home() {
   );
 }
 
-function FeatureCard({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
+function FeatureCard({ icon, title, desc }: { icon: ReactNode, title: string, desc: string }) {
   return (
     <div className="flex flex-col items-start rounded-3xl border border-zinc-900 bg-zinc-900/20 p-8 transition-all hover:bg-zinc-800/40 hover:border-zinc-800 group">
       <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-zinc-100 transition-all group-hover:scale-110 group-hover:bg-zinc-100 group-hover:text-zinc-900">
@@ -222,11 +186,11 @@ function FeatureCard({ icon, title, desc }: { icon: React.ReactNode, title: stri
   );
 }
 
-function TrustItem({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
+function TrustItem({ icon, title, desc }: { icon: ReactNode, title: string, desc: string }) {
   return (
     <div className="flex gap-6 items-start">
       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-zinc-900/50 border border-zinc-800 text-zinc-400">
-        {React.cloneElement(icon as React.ReactElement, { className: "h-5 w-5" })}
+        {cloneIcon(icon)}
       </div>
       <div>
         <h4 className="text-xl font-bold text-zinc-100">{title}</h4>
@@ -234,4 +198,9 @@ function TrustItem({ icon, title, desc }: { icon: React.ReactNode, title: string
       </div>
     </div>
   )
+}
+
+function cloneIcon(icon: ReactNode) {
+  if (!isValidElement(icon)) return null;
+  return cloneElement(icon as ReactElement<{ className?: string }>, { className: "h-5 w-5" });
 }
