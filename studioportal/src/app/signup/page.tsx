@@ -20,7 +20,9 @@ export default function SignupPage() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-500">
               StudioPortal Registration
             </p>
-            <h1 className="text-3xl font-bold tracking-tight text-white">Create account</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-white">
+              Create account
+            </h1>
             <p className="mt-2 text-sm text-zinc-500">
               Set up your workspace access in under a minute.
             </p>
@@ -28,7 +30,10 @@ export default function SignupPage() {
 
           <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-medium text-zinc-300">
+              <label
+                htmlFor="name"
+                className="text-sm font-medium text-zinc-300"
+              >
                 Full name
               </label>
               <input
@@ -43,7 +48,10 @@ export default function SignupPage() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-medium text-zinc-300">
+              <label
+                htmlFor="email"
+                className="text-sm font-medium text-zinc-300"
+              >
                 Work email
               </label>
               <input
@@ -58,7 +66,10 @@ export default function SignupPage() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="password" className="text-sm font-medium text-zinc-300">
+              <label
+                htmlFor="password"
+                className="text-sm font-medium text-zinc-300"
+              >
                 Password
               </label>
               <input
@@ -82,7 +93,10 @@ export default function SignupPage() {
 
           <p className="mt-7 text-center text-sm text-zinc-500">
             Already have an account?{" "}
-            <Link href="/login" className="font-semibold text-zinc-300 transition hover:text-white">
+            <Link
+              href="/login"
+              className="font-semibold text-zinc-300 transition hover:text-white"
+            >
               Sign in
             </Link>
           </p>
