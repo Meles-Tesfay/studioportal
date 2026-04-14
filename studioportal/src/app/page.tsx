@@ -9,7 +9,6 @@ import {
   Zap,
   ShieldCheck,
   Package,
-  ArrowUpRight,
   Layers,
   Globe,
   Lock,
@@ -72,9 +71,15 @@ export default function Home() {
             </div>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs uppercase tracking-[0.28em] text-zinc-500 sm:justify-center">
-              <span className="rounded-full border border-zinc-800/80 bg-zinc-900/40 px-3 py-2">Trusted by elite studios</span>
-              <span className="rounded-full border border-zinc-800/80 bg-zinc-900/40 px-3 py-2">Built for boutique scale</span>
-              <span className="rounded-full border border-zinc-800/80 bg-zinc-900/40 px-3 py-2">Secure SSO & billing</span>
+              <span className="rounded-full border border-zinc-800/80 bg-zinc-900/40 px-3 py-2">
+                Trusted by elite studios
+              </span>
+              <span className="rounded-full border border-zinc-800/80 bg-zinc-900/40 px-3 py-2">
+                Built for boutique scale
+              </span>
+              <span className="rounded-full border border-zinc-800/80 bg-zinc-900/40 px-3 py-2">
+                Secure SSO & billing
+              </span>
             </div>
           </div>
         </section>
@@ -153,10 +158,16 @@ export default function Home() {
                   className="h-full w-full object-cover opacity-95 transition-transform duration-700 group-hover:scale-[1.03] group-hover:opacity-100"
                 />
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 rounded-b-[2rem] bg-gradient-to-t from-black/70 via-black/0 to-transparent px-8 py-8 text-left text-zinc-100 sm:px-10">
-                  <p className="text-sm uppercase tracking-[0.3em] text-zinc-400">Live workflow preview</p>
-                  <h3 className="mt-3 text-3xl font-bold sm:text-4xl">A dashboard built to inspire clarity and speed.</h3>
+                  <p className="text-sm uppercase tracking-[0.3em] text-zinc-400">
+                    Live workflow preview
+                  </p>
+                  <h3 className="mt-3 text-3xl font-bold sm:text-4xl">
+                    A dashboard built to inspire clarity and speed.
+                  </h3>
                   <p className="mt-3 max-w-2xl text-sm text-zinc-300 sm:text-base">
-                    See how premium studio operations look when every project, invoice, and client touchpoint lives in one compelling workspace.
+                    See how premium studio operations look when every project,
+                    invoice, and client touchpoint lives in one compelling
+                    workspace.
                   </p>
                 </div>
               </div>
@@ -194,12 +205,16 @@ export default function Home() {
               <div className="flex h-48 flex-col justify-end rounded-3xl bg-gradient-to-br from-zinc-950/70 via-zinc-900/70 to-zinc-800/70 p-8 ring-1 ring-zinc-800/60 transition-all hover:from-zinc-900/90 hover:to-zinc-800/90">
                 <Globe className="mb-4 h-8 w-8 text-cyan-400" />
                 <h4 className="font-bold text-xl text-white">Global Edge</h4>
-                <p className="mt-2 text-sm text-zinc-400">Multi-region distribution for distributed teams.</p>
+                <p className="mt-2 text-sm text-zinc-400">
+                  Multi-region distribution for distributed teams.
+                </p>
               </div>
               <div className="flex h-48 flex-col justify-end rounded-3xl bg-gradient-to-br from-zinc-950/70 via-zinc-900/70 to-zinc-800/70 p-8 ring-1 ring-zinc-800/60 transition-all hover:from-zinc-900/90 hover:to-zinc-800/90">
                 <Layers className="mb-4 h-8 w-8 text-violet-400" />
                 <h4 className="font-bold text-xl text-white">Multi-tenant</h4>
-                <p className="mt-2 text-sm text-zinc-400">White-labeled spaces built for each client experience.</p>
+                <p className="mt-2 text-sm text-zinc-400">
+                  White-labeled spaces built for each client experience.
+                </p>
               </div>
               <div className="col-span-2 flex h-56 flex-col justify-between rounded-[2rem] bg-zinc-100 p-8 text-black ring-1 ring-zinc-800/60 shadow-lg shadow-zinc-950/10">
                 <div>
@@ -209,9 +224,15 @@ export default function Home() {
                   <h4 className="mt-4 font-bold text-3xl">Ready for launch</h4>
                 </div>
                 <div className="flex flex-wrap gap-3 text-sm text-zinc-500">
-                  <span className="rounded-full bg-zinc-200 px-3 py-2">Automated billing</span>
-                  <span className="rounded-full bg-zinc-200 px-3 py-2">Client portals</span>
-                  <span className="rounded-full bg-zinc-200 px-3 py-2">Team productivity</span>
+                  <span className="rounded-full bg-zinc-200 px-3 py-2">
+                    Automated billing
+                  </span>
+                  <span className="rounded-full bg-zinc-200 px-3 py-2">
+                    Client portals
+                  </span>
+                  <span className="rounded-full bg-zinc-200 px-3 py-2">
+                    Team productivity
+                  </span>
                 </div>
               </div>
             </div>
@@ -222,12 +243,15 @@ export default function Home() {
           <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-10 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.8)] backdrop-blur-xl sm:p-12">
             <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
               <div className="max-w-2xl">
-                <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">Launch-ready studio OS</p>
+                <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
+                  Launch-ready studio OS
+                </p>
                 <h3 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
                   Scale confidently with industry-grade operations.
                 </h3>
                 <p className="mt-5 text-base leading-8 text-zinc-400 sm:text-lg">
-                  Move from freelancer chaos to polished, repeatable client delivery with a dashboard built for premium teams.
+                  Move from freelancer chaos to polished, repeatable client
+                  delivery with a dashboard built for premium teams.
                 </p>
               </div>
 

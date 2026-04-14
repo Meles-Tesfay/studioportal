@@ -10,21 +10,35 @@ export default function Navbar() {
       </Link>
 
       <nav className="hidden items-center gap-8 text-sm font-medium text-zinc-400 sm:flex">
-        <Link href="#features" className="hover:text-zinc-100 transition-colors">Features</Link>
-        <Link href="#showcase" className="hover:text-zinc-100 transition-colors">Showcase</Link>
-        <Link href="#pricing" className="hover:text-zinc-100 transition-colors">Pricing</Link>
-        <Link href="#docs" className="hover:text-zinc-100 transition-colors">Documentation</Link>
+        <Link
+          href="#features"
+          className="hover:text-zinc-100 transition-colors"
+        >
+          Features
+        </Link>
+        <Link
+          href="#showcase"
+          className="hover:text-zinc-100 transition-colors"
+        >
+          Showcase
+        </Link>
+        <Link href="#pricing" className="hover:text-zinc-100 transition-colors">
+          Pricing
+        </Link>
+        <Link href="#docs" className="hover:text-zinc-100 transition-colors">
+          Documentation
+        </Link>
       </nav>
 
       <div className="flex items-center gap-6">
-        <Link 
-          href="/login" 
+        <Link
+          href="/login"
           className="hidden text-sm font-medium text-zinc-400 hover:text-zinc-100 transition-colors sm:block"
         >
           Sign In
         </Link>
-        <Link 
-          href="/signup" 
+        <Link
+          href="/signup"
           className="group flex h-10 items-center gap-2 rounded-lg bg-gradient-to-r from-slate-100 via-zinc-100 to-zinc-200 px-5 text-sm font-bold text-black transition-all hover:scale-[1.03] active:scale-[0.97]"
         >
           Get Started
