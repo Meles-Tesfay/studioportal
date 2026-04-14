@@ -57,7 +57,7 @@ export default function Footer() {
       
       <div className="mx-auto mt-16 max-w-7xl pt-8 border-t border-zinc-900 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-xs font-medium text-zinc-600">
         <p>© {currentYear} StudioPortal Inc. All rights reserved.</p>
-        <p>Built by elite architects for elite designers.</p>
+        <p>Designed for premium studios ready to scale with confidence.</p>
       </div>
     </footer>
   );

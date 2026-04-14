@@ -24,10 +24,10 @@ export default function Navbar() {
           Sign In
         </Link>
         <Link 
-          href="/dashboard" 
-          className="group flex h-10 items-center gap-2 rounded-lg bg-zinc-100 px-5 text-sm font-bold text-black transition-all hover:scale-[1.03] active:scale-[0.97]"
+          href="/signup" 
+          className="group flex h-10 items-center gap-2 rounded-lg bg-gradient-to-r from-slate-100 via-zinc-100 to-zinc-200 px-5 text-sm font-bold text-black transition-all hover:scale-[1.03] active:scale-[0.97]"
         >
-          Launch Portal
+          Get Started
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
         <button className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 text-zinc-400 sm:hidden">
