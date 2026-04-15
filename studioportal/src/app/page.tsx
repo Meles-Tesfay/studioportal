@@ -387,7 +387,9 @@ function FeatureCard({
       <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500/20 via-transparent to-slate-800/40 border border-zinc-800 text-cyan-300 transition duration-300 group-hover:scale-110 group-hover:bg-cyan-500/20">
         {icon}
       </div>
-      <h3 className="mb-3 text-2xl font-bold tracking-tight text-white">{title}</h3>
+      <h3 className="mb-3 text-2xl font-bold tracking-tight text-white">
+        {title}
+      </h3>
       <p className="text-zinc-400 leading-relaxed text-base">{desc}</p>
     </div>
   );
@@ -483,7 +485,9 @@ function StatCard({ value, label }: { value: string; label: string }) {
   return (
     <div className="rounded-[1.75rem] border border-zinc-800/70 bg-zinc-950/80 p-6 text-center transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-zinc-900/80">
       <p className="text-4xl font-bold tracking-tight text-white">{value}</p>
-      <p className="mt-3 text-sm uppercase tracking-[0.35em] text-zinc-500">{label}</p>
+      <p className="mt-3 text-sm uppercase tracking-[0.35em] text-zinc-500">
+        {label}
+      </p>
     </div>
   );
 }
