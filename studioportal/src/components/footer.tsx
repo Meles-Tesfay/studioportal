@@ -40,22 +40,34 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-4 text-sm font-medium text-zinc-500">
               <li>
-                <a href="#features" className="hover:text-zinc-100 transition-colors">
+                <a
+                  href="#features"
+                  className="hover:text-zinc-100 transition-colors"
+                >
                   Features
                 </a>
               </li>
               <li>
-                <a href="#showcase" className="hover:text-zinc-100 transition-colors">
+                <a
+                  href="#showcase"
+                  className="hover:text-zinc-100 transition-colors"
+                >
                   Roadmap
                 </a>
               </li>
               <li>
-                <a href="#showcase" className="hover:text-zinc-100 transition-colors">
+                <a
+                  href="#showcase"
+                  className="hover:text-zinc-100 transition-colors"
+                >
                   Showcase
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-zinc-100 transition-colors">
+                <a
+                  href="#pricing"
+                  className="hover:text-zinc-100 transition-colors"
+                >
                   Pricing
                 </a>
               </li>
@@ -99,7 +111,10 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#docs" className="hover:text-zinc-100 transition-colors">
+                <a
+                  href="#docs"
+                  className="hover:text-zinc-100 transition-colors"
+                >
                   API Reference
                 </a>
               </li>
@@ -109,7 +124,10 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#docs" className="hover:text-zinc-100 transition-colors">
+                <a
+                  href="#docs"
+                  className="hover:text-zinc-100 transition-colors"
+                >
                   Security
                 </a>
               </li>
