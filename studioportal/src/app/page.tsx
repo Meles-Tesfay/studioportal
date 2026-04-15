@@ -44,30 +44,39 @@ export default function Home() {
 
             {/* Hero Heading */}
             <h1 className="max-w-5xl text-[clamp(2.5rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight sm:text-7xl lg:text-8xl">
-              The Operating <span className="text-zinc-600">System</span> <br />
-              for Elite Studios.
+              The Operating
+              <span className="block bg-gradient-to-r from-cyan-300 via-slate-100 to-white bg-clip-text text-transparent">
+                System
+              </span>
+              <span className="block text-white">for Elite Studios.</span>
             </h1>
 
             <p className="mt-10 max-w-3xl text-lg leading-relaxed text-zinc-400 sm:text-2xl">
-              StudioPortal centralizes your agency operations into a single,
-              cinematic interface. Manage clients, track project milestones, and
-              automate invoicing with unmatched precision and brand status.
+              StudioPortal brings premium client portals, smart workflows, and
+              real-time billing into one polished hub designed for high-end
+              studios.
             </p>
 
             <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:gap-6">
               <Link
                 href="/signup"
-                className="group relative flex h-16 items-center justify-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-slate-100 via-zinc-100 to-zinc-200 px-10 text-xl font-bold text-black shadow-lg shadow-zinc-950/10 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="group relative flex h-16 items-center justify-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-400 via-slate-100 to-white px-10 text-xl font-bold text-black shadow-xl shadow-cyan-500/10 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
                 Start Free Trial
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1.5" />
               </Link>
               <Link
                 href="#showcase"
-                className="flex h-16 items-center justify-center rounded-2xl border border-zinc-800/60 bg-zinc-900/40 px-10 text-xl font-semibold text-zinc-200 backdrop-blur-md transition-all hover:border-zinc-700 hover:bg-zinc-900/60"
+                className="flex h-16 items-center justify-center rounded-2xl border border-zinc-800/60 bg-zinc-900/50 px-10 text-xl font-semibold text-zinc-200 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/60 hover:bg-zinc-900/70"
               >
                 Explore Showcase
               </Link>
+            </div>
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              <StatCard value="23%" label="Faster delivery" />
+              <StatCard value="50+" label="Studio partners" />
+              <StatCard value="99.9%" label="Platform uptime" />
             </div>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs uppercase tracking-[0.28em] text-zinc-500 sm:justify-center">
@@ -374,12 +383,12 @@ function FeatureCard({
   desc: string;
 }) {
   return (
-    <div className="flex flex-col items-start rounded-3xl border border-zinc-900 bg-zinc-900/20 p-8 transition-all hover:bg-zinc-800/40 hover:border-zinc-800 group">
-      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-zinc-100 transition-all group-hover:scale-110 group-hover:bg-zinc-100 group-hover:text-zinc-900">
+    <div className="flex flex-col items-start rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-8 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/20 hover:bg-zinc-900/80 group">
+      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500/20 via-transparent to-slate-800/40 border border-zinc-800 text-cyan-300 transition duration-300 group-hover:scale-110 group-hover:bg-cyan-500/20">
         {icon}
       </div>
-      <h3 className="mb-3 text-2xl font-bold tracking-tight">{title}</h3>
-      <p className="text-zinc-500 leading-relaxed text-base">{desc}</p>
+      <h3 className="mb-3 text-2xl font-bold tracking-tight text-white">{title}</h3>
+      <p className="text-zinc-400 leading-relaxed text-base">{desc}</p>
     </div>
   );
 }
@@ -449,10 +458,10 @@ function PricingCard({
       </ul>
       <button
         className={
-          "mt-10 w-full rounded-2xl px-6 py-4 text-sm font-semibold transition " +
+          "mt-10 w-full rounded-2xl px-6 py-4 text-sm font-semibold transition-all duration-200 " +
           (highlighted
-            ? "bg-cyan-500 text-black hover:bg-cyan-400"
-            : "border border-zinc-800 bg-zinc-900 text-zinc-100 hover:bg-zinc-800")
+            ? "bg-cyan-500 text-black hover:bg-cyan-400 hover:-translate-y-0.5"
+            : "border border-zinc-800 bg-zinc-900 text-zinc-100 hover:bg-zinc-800 hover:-translate-y-0.5")
         }
       >
         {highlighted ? "Start growth" : "Choose plan"}
@@ -466,6 +475,15 @@ function DocFeature({ title, desc }: { title: string; desc: string }) {
     <div className="rounded-3xl border border-zinc-800 bg-zinc-900/70 p-6 text-zinc-100">
       <h4 className="text-xl font-semibold">{title}</h4>
       <p className="mt-3 text-sm leading-6 text-zinc-400">{desc}</p>
+    </div>
+  );
+}
+
+function StatCard({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-[1.75rem] border border-zinc-800/70 bg-zinc-950/80 p-6 text-center transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-zinc-900/80">
+      <p className="text-4xl font-bold tracking-tight text-white">{value}</p>
+      <p className="mt-3 text-sm uppercase tracking-[0.35em] text-zinc-500">{label}</p>
     </div>
   );
 }
