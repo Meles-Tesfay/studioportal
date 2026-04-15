@@ -239,6 +239,67 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="pricing" className="mx-auto max-w-7xl px-6 py-24 sm:px-12 lg:px-16">
+          <div className="mb-16 text-center">
+            <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
+              Pricing plans
+            </p>
+            <h2 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              Choose the plan that fits your studio.
+            </h2>
+            <p className="mt-4 max-w-2xl mx-auto text-zinc-400 sm:text-lg">
+              Simple, transparent pricing for boutique studios and growing teams.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            <PricingCard
+              title="Starter"
+              price="$29"
+              frequency="/month"
+              features={["Client portals", "Basic invoicing", "Email support"]}
+            />
+            <PricingCard
+              title="Growth"
+              price="$79"
+              frequency="/month"
+              features={["Automated workflows", "Advanced analytics", "Priority support"]}
+              highlighted
+            />
+            <PricingCard
+              title="Enterprise"
+              price="Custom"
+              frequency=""
+              features={["Custom onboarding", "SLA support", "Dedicated success lead"]}
+            />
+          </div>
+        </section>
+
+        <section id="docs" className="mx-auto max-w-7xl px-6 pb-24 sm:px-12 lg:px-16">
+          <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-10 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.8)] backdrop-blur-xl sm:p-12">
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+              <div>
+                <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
+                  Documentation
+                </p>
+                <h3 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                  Everything you need to onboard, integrate, and scale.
+                </h3>
+                <p className="mt-5 text-base leading-8 text-zinc-400 sm:text-lg">
+                  Access clear implementation guides, API reference, and best
+                  practices for managing premium agency operations.
+                </p>
+              </div>
+
+              <div className="grid gap-4">
+                <DocFeature title="Quickstart guide" desc="Get up and running in minutes with step-by-step onboarding." />
+                <DocFeature title="API reference" desc="Use native integrations and automation endpoints with ease." />
+                <DocFeature title="Security guide" desc="Learn how StudioPortal keeps client data protected at every layer." />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="mx-auto max-w-7xl px-6 pb-24 sm:px-12 lg:px-16">
           <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-10 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.8)] backdrop-blur-xl sm:p-12">
             <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
@@ -317,6 +378,74 @@ function TrustItem({
         <h4 className="text-xl font-bold text-zinc-100">{title}</h4>
         <p className="text-zinc-500 text-sm mt-1">{desc}</p>
       </div>
+    </div>
+  );
+}
+
+function PricingCard({
+  title,
+  price,
+  frequency,
+  features,
+  highlighted,
+}: {
+  title: string;
+  price: string;
+  frequency: string;
+  features: string[];
+  highlighted?: boolean;
+}) {
+  return (
+    <div
+      className={
+        "rounded-[2rem] border p-8 transition-all " +
+        (highlighted
+          ? "border-cyan-500/20 bg-cyan-500/10 shadow-[0_30px_70px_-30px_rgba(34,211,238,0.35)]"
+          : "border-zinc-800 bg-zinc-950/70")
+      }
+    >
+      <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">{title}</p>
+      <div className="mt-6 flex items-end gap-2">
+        <span className="text-5xl font-bold text-white">{price}</span>
+        <span className="pb-1 text-sm text-zinc-400">{frequency}</span>
+      </div>
+      <p className="mt-4 text-zinc-400">
+        Everything your studio needs to move faster and operate like a premium
+        agency.
+      </p>
+      <ul className="mt-8 space-y-4 text-sm text-zinc-500">
+        {features.map((feature) => (
+          <li key={feature} className="flex items-center gap-3">
+            <span className="h-2.5 w-2.5 rounded-full bg-cyan-400" />
+            {feature}
+          </li>
+        ))}
+      </ul>
+      <button
+        className={
+          "mt-10 w-full rounded-2xl px-6 py-4 text-sm font-semibold transition " +
+          (highlighted
+            ? "bg-cyan-500 text-black hover:bg-cyan-400"
+            : "border border-zinc-800 bg-zinc-900 text-zinc-100 hover:bg-zinc-800")
+        }
+      >
+        {highlighted ? "Start growth" : "Choose plan"}
+      </button>
+    </div>
+  );
+}
+
+function DocFeature({
+  title,
+  desc,
+}: {
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="rounded-3xl border border-zinc-800 bg-zinc-900/70 p-6 text-zinc-100">
+      <h4 className="text-xl font-semibold">{title}</h4>
+      <p className="mt-3 text-sm leading-6 text-zinc-400">{desc}</p>
     </div>
   );
 }
