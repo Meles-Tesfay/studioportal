@@ -239,7 +239,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="pricing" className="mx-auto max-w-7xl px-6 py-24 sm:px-12 lg:px-16">
+        <section
+          id="pricing"
+          className="mx-auto max-w-7xl px-6 py-24 sm:px-12 lg:px-16"
+        >
           <div className="mb-16 text-center">
             <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
               Pricing plans
@@ -248,7 +251,8 @@ export default function Home() {
               Choose the plan that fits your studio.
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-zinc-400 sm:text-lg">
-              Simple, transparent pricing for boutique studios and growing teams.
+              Simple, transparent pricing for boutique studios and growing
+              teams.
             </p>
           </div>
 
@@ -263,19 +267,30 @@ export default function Home() {
               title="Growth"
               price="$79"
               frequency="/month"
-              features={["Automated workflows", "Advanced analytics", "Priority support"]}
+              features={[
+                "Automated workflows",
+                "Advanced analytics",
+                "Priority support",
+              ]}
               highlighted
             />
             <PricingCard
               title="Enterprise"
               price="Custom"
               frequency=""
-              features={["Custom onboarding", "SLA support", "Dedicated success lead"]}
+              features={[
+                "Custom onboarding",
+                "SLA support",
+                "Dedicated success lead",
+              ]}
             />
           </div>
         </section>
 
-        <section id="docs" className="mx-auto max-w-7xl px-6 pb-24 sm:px-12 lg:px-16">
+        <section
+          id="docs"
+          className="mx-auto max-w-7xl px-6 pb-24 sm:px-12 lg:px-16"
+        >
           <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-10 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.8)] backdrop-blur-xl sm:p-12">
             <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
               <div>
@@ -292,9 +307,18 @@ export default function Home() {
               </div>
 
               <div className="grid gap-4">
-                <DocFeature title="Quickstart guide" desc="Get up and running in minutes with step-by-step onboarding." />
-                <DocFeature title="API reference" desc="Use native integrations and automation endpoints with ease." />
-                <DocFeature title="Security guide" desc="Learn how StudioPortal keeps client data protected at every layer." />
+                <DocFeature
+                  title="Quickstart guide"
+                  desc="Get up and running in minutes with step-by-step onboarding."
+                />
+                <DocFeature
+                  title="API reference"
+                  desc="Use native integrations and automation endpoints with ease."
+                />
+                <DocFeature
+                  title="Security guide"
+                  desc="Learn how StudioPortal keeps client data protected at every layer."
+                />
               </div>
             </div>
           </div>
@@ -404,7 +428,9 @@ function PricingCard({
           : "border-zinc-800 bg-zinc-950/70")
       }
     >
-      <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">{title}</p>
+      <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
+        {title}
+      </p>
       <div className="mt-6 flex items-end gap-2">
         <span className="text-5xl font-bold text-white">{price}</span>
         <span className="pb-1 text-sm text-zinc-400">{frequency}</span>
@@ -435,13 +461,7 @@ function PricingCard({
   );
 }
 
-function DocFeature({
-  title,
-  desc,
-}: {
-  title: string;
-  desc: string;
-}) {
+function DocFeature({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="rounded-3xl border border-zinc-800 bg-zinc-900/70 p-6 text-zinc-100">
       <h4 className="text-xl font-semibold">{title}</h4>
