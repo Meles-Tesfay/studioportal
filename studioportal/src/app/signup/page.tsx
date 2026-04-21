@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -14,6 +15,9 @@ export default function SignupPage() {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [pwStrength, setPwStrength] = useState("");
+
+  const strengthPercent = pwStrength === "Weak" ? 33 : pwStrength === "Good" ? 66 : pwStrength === "Strong" ? 100 : 0;
+  const strengthColor = pwStrength === "Weak" ? "bg-red-500" : pwStrength === "Good" ? "bg-yellow-400" : pwStrength === "Strong" ? "bg-emerald-400" : "bg-zinc-700";
 
   useEffect(() => {
     const checks = [
@@ -62,7 +66,12 @@ export default function SignupPage() {
   return (
     <main className="min-h-screen bg-[#09090b] text-zinc-100">
       <div className="mx-auto flex min-h-screen w-full max-w-7xl items-center justify-center px-6 py-16 sm:px-12 lg:px-16">
-        <section className="relative overflow-hidden w-full max-w-md rounded-3xl border border-zinc-800/80 bg-zinc-900/40 p-8 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.8)] backdrop-blur">
+        <motion.section
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="relative overflow-hidden w-full max-w-md rounded-3xl border border-zinc-800/80 bg-zinc-900/40 p-8 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.8)] backdrop-blur"
+        >
           <div className="pointer-events-none absolute -left-10 -bottom-10 h-44 w-44 rounded-full bg-gradient-to-tr from-emerald-400/20 to-sky-500/10 blur-3xl opacity-60" />
 
           <div className="mb-6 flex items-center gap-4">
@@ -107,14 +116,26 @@ export default function SignupPage() {
           </div>
 
           {error ? (
-            <div className="mb-4 rounded-md border border-red-600/30 bg-red-900/30 p-3 text-sm text-red-300">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mb-4 rounded-md border border-red-600/30 bg-red-900/30 p-3 text-sm text-red-300"
+              role="alert"
+              aria-live="assertive"
+            >
               {error}
-            </div>
+            </motion.div>
           ) : null}
           {success ? (
-            <div className="mb-4 rounded-md border border-green-600/30 bg-green-900/30 p-3 text-sm text-green-300">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mb-4 rounded-md border border-green-600/30 bg-green-900/30 p-3 text-sm text-green-300"
+              role="status"
+              aria-live="polite"
+            >
               {success}
-            </div>
+            </motion.div>
           ) : null}
 
           <form className="space-y-5" onSubmit={handleSubmit}>
@@ -273,15 +294,23 @@ export default function SignupPage() {
                   {pwStrength || "-"}
                 </span>
               </p>
+              <div className="mt-2 h-2 w-full rounded-full bg-zinc-800">
+                <div
+                  className={`h-2 rounded-full transition-all duration-300 ${strengthColor}`}
+                  style={{ width: `${strengthPercent}%` }}
+                />
+              </div>
             </div>
 
-            <button
+            <motion.button
               type="submit"
-              className="mt-2 h-12 w-full rounded-xl bg-zinc-100 text-sm font-bold text-black transition hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.99 }}
+              className="mt-2 h-12 w-full rounded-xl bg-zinc-100 text-sm font-bold text-black transition disabled:opacity-60"
               disabled={loading}
             >
               {loading ? "Creating..." : "Create Account"}
-            </button>
+            </motion.button>
           </form>
 
           <p className="mt-7 text-center text-sm text-zinc-500">
@@ -293,6 +322,7 @@ export default function SignupPage() {
               Sign in
             </Link>
           </p>
+        </motion.section>
         </section>
       </div>
     </main>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -44,7 +45,12 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen bg-[#09090b] text-zinc-100">
       <div className="mx-auto flex min-h-screen w-full max-w-7xl items-center justify-center px-6 py-16 sm:px-12 lg:px-16">
-        <section className="relative overflow-hidden w-full max-w-md rounded-3xl border border-zinc-800/80 bg-zinc-900/40 p-8 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.8)] backdrop-blur">
+        <motion.section
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="relative overflow-hidden w-full max-w-md rounded-3xl border border-zinc-800/80 bg-zinc-900/40 p-8 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.8)] backdrop-blur"
+        >
           <div className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-gradient-to-tr from-indigo-500/30 to-purple-500/20 blur-3xl opacity-60" />
 
           <div className="mb-6 flex items-center gap-4">
@@ -89,9 +95,15 @@ export default function LoginPage() {
           </div>
 
           {error ? (
-            <div className="mb-4 rounded-md border border-red-600/30 bg-red-900/30 p-3 text-sm text-red-300">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mb-4 rounded-md border border-red-600/30 bg-red-900/30 p-3 text-sm text-red-300"
+              role="alert"
+              aria-live="assertive"
+            >
               {error}
-            </div>
+            </motion.div>
           ) : null}
 
           <form className="space-y-5" onSubmit={handleSubmit}>
@@ -140,6 +152,7 @@ export default function LoginPage() {
                   required
                   disabled={loading}
                 />
+                  <p className="mt-1 text-xs text-zinc-500">We'll never share your email — only used for account access.</p>
               </div>
             </div>
 
@@ -207,13 +220,15 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <button
+            <motion.button
               type="submit"
-              className="mt-2 flex h-12 w-full items-center justify-center rounded-xl bg-zinc-100 text-sm font-bold text-black transition hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.99 }}
+              className="mt-2 flex h-12 w-full items-center justify-center rounded-xl bg-zinc-100 text-sm font-bold text-black transition disabled:opacity-60"
               disabled={loading}
             >
               {loading ? "Signing in..." : "Sign In"}
-            </button>
+            </motion.button>
           </form>
 
           <p className="mt-7 text-center text-sm text-zinc-500">
