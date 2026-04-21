@@ -152,7 +152,9 @@ export default function LoginPage() {
                   required
                   disabled={loading}
                 />
-                  <p className="mt-1 text-xs text-zinc-500">We'll never share your email — only used for account access.</p>
+                <p className="mt-1 text-xs text-zinc-500">
+                  We'll never share your email — only used for account access.
+                </p>
               </div>
             </div>
 

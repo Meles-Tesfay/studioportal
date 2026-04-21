@@ -16,8 +16,22 @@ export default function SignupPage() {
   const [success, setSuccess] = useState<string | null>(null);
   const [pwStrength, setPwStrength] = useState("");
 
-  const strengthPercent = pwStrength === "Weak" ? 33 : pwStrength === "Good" ? 66 : pwStrength === "Strong" ? 100 : 0;
-  const strengthColor = pwStrength === "Weak" ? "bg-red-500" : pwStrength === "Good" ? "bg-yellow-400" : pwStrength === "Strong" ? "bg-emerald-400" : "bg-zinc-700";
+  const strengthPercent =
+    pwStrength === "Weak"
+      ? 33
+      : pwStrength === "Good"
+        ? 66
+        : pwStrength === "Strong"
+          ? 100
+          : 0;
+  const strengthColor =
+    pwStrength === "Weak"
+      ? "bg-red-500"
+      : pwStrength === "Good"
+        ? "bg-yellow-400"
+        : pwStrength === "Strong"
+          ? "bg-emerald-400"
+          : "bg-zinc-700";
 
   useEffect(() => {
     const checks = [
