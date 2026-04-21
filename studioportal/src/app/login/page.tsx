@@ -240,7 +240,7 @@ export default function LoginPage() {
               Create account
             </Link>
           </p>
-        </section>
+        </motion.section>
       </div>
     </main>
   );
