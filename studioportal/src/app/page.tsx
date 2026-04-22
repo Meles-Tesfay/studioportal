@@ -1,4 +1,7 @@
+"use client";
+
 import { cloneElement, isValidElement } from "react";
+import { motion } from "framer-motion";
 import type { ReactElement, ReactNode } from "react";
 import {
   LayoutDashboard,
@@ -35,29 +38,49 @@ export default function Home() {
         <section className="mx-auto max-w-7xl px-6 py-24 sm:px-12 lg:px-16 lg:py-32">
           <div className="flex flex-col items-center text-center">
             {/* Badge */}
-            <div className="mb-10 flex items-center gap-2 rounded-full border border-zinc-800/80 bg-zinc-900/40 px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-all hover:bg-zinc-800/60">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-10 flex items-center gap-2 rounded-full border border-zinc-800/80 bg-zinc-900/40 px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-all hover:bg-zinc-800/60"
+            >
               <Sparkles className="h-3.5 w-3.5 text-zinc-400" />
               <span className="text-zinc-400">
                 Phase 1: Infrastructure Live
               </span>
-            </div>
+            </motion.div>
 
             {/* Hero Heading */}
-            <h1 className="max-w-5xl text-[clamp(2.5rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight sm:text-7xl lg:text-8xl">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="max-w-5xl text-[clamp(2.5rem,8vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight sm:text-7xl lg:text-8xl"
+            >
               The Operating
               <span className="block bg-gradient-to-r from-cyan-300 via-slate-100 to-white bg-clip-text text-transparent">
                 System
               </span>
               <span className="block text-white">for Elite Studios.</span>
-            </h1>
+            </motion.h1>
 
-            <p className="mt-10 max-w-3xl text-lg leading-relaxed text-zinc-400 sm:text-2xl">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-10 max-w-3xl text-lg leading-relaxed text-zinc-400 sm:text-2xl"
+            >
               StudioPortal brings premium client portals, smart workflows, and
               real-time billing into one polished hub designed for high-end
               studios.
-            </p>
+            </motion.p>
 
-            <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:gap-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mt-14 flex flex-col gap-4 sm:flex-row sm:gap-6"
+            >
               <Link
                 href="/signup"
                 className="group relative flex h-16 items-center justify-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-400 via-slate-100 to-white px-10 text-xl font-bold text-black shadow-xl shadow-cyan-500/10 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
@@ -71,15 +94,25 @@ export default function Home() {
               >
                 Explore Showcase
               </Link>
-            </div>
+            </motion.div>
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              <StatCard value="23%" label="Faster delivery" />
-              <StatCard value="50+" label="Studio partners" />
-              <StatCard value="99.9%" label="Platform uptime" />
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-10 grid gap-4 sm:grid-cols-3"
+            >
+              <StatCard value="23%" label="Faster delivery" delay={0.5} />
+              <StatCard value="50+" label="Studio partners" delay={0.6} />
+              <StatCard value="99.9%" label="Platform uptime" delay={0.7} />
+            </motion.div>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs uppercase tracking-[0.28em] text-zinc-500 sm:justify-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs uppercase tracking-[0.28em] text-zinc-500 sm:justify-center"
+            >
               <span className="rounded-full border border-zinc-800/80 bg-zinc-900/40 px-3 py-2">
                 Trusted by elite studios
               </span>
@@ -89,7 +122,7 @@ export default function Home() {
               <span className="rounded-full border border-zinc-800/80 bg-zinc-900/40 px-3 py-2">
                 Secure SSO & billing
               </span>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -111,21 +144,25 @@ export default function Home() {
               icon={<LayoutDashboard className="h-6 w-6" />}
               title="Centric Dashboard"
               desc="Real-time oversight of agency metrics, revenue goals, and team capacity."
+              delay={0.1}
             />
             <FeatureCard
               icon={<Users className="h-6 w-6" />}
               title="Bespoke Portals"
               desc="Individual, white-labeled workspaces that elevates your client experience."
+              delay={0.2}
             />
             <FeatureCard
               icon={<Package className="h-6 w-6" />}
               title="Milestone Roadmaps"
               desc="Interactive, high-fidelity timelines for tracking project evolution."
+              delay={0.3}
             />
             <FeatureCard
               icon={<CreditCard className="h-6 w-6" />}
               title="Frictionless Billing"
               desc="Integrated Stripe invoicing with one-click automated checkout flows."
+              delay={0.4}
             />
           </div>
         </section>
@@ -139,7 +176,13 @@ export default function Home() {
             {/* Glossy Border Effect */}
             <div className="absolute -inset-1 rounded-[2.2rem] bg-gradient-to-b from-zinc-700/30 to-transparent opacity-50 blur-xl transition-all group-hover:opacity-100 group-hover:duration-500" />
 
-            <div className="glass relative flex h-[500px] w-full flex-col overflow-hidden rounded-[2rem] border border-zinc-800 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.8)] sm:h-[600px]">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7 }}
+              className="glass relative flex h-[500px] w-full flex-col overflow-hidden rounded-[2rem] border border-zinc-800 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.8)] sm:h-[600px]"
+            >
               {/* Fake Window Controls */}
               <div className="flex items-center justify-between border-b border-zinc-800/80 bg-zinc-900/40 px-8 py-5 backdrop-blur-md">
                 <div className="flex items-center gap-6">
@@ -180,7 +223,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -197,16 +240,19 @@ export default function Home() {
                   icon={<ShieldCheck />}
                   title="Enterprise Security"
                   desc="Encrypt every client workflow with zero compromise."
+                  delay={0.1}
                 />
                 <TrustItem
                   icon={<Zap />}
                   title="Hyper-Performance"
                   desc="Instant insights and lightning-fast internal workflows."
+                  delay={0.2}
                 />
                 <TrustItem
                   icon={<Lock />}
                   title="Access Control"
                   desc="Granular roles keep sensitive studio data locked down."
+                  delay={0.3}
                 />
               </div>
             </div>
@@ -271,6 +317,7 @@ export default function Home() {
               price="$29"
               frequency="/month"
               features={["Client portals", "Basic invoicing", "Email support"]}
+              delay={0.1}
             />
             <PricingCard
               title="Growth"
@@ -282,6 +329,7 @@ export default function Home() {
                 "Priority support",
               ]}
               highlighted
+              delay={0.2}
             />
             <PricingCard
               title="Enterprise"
@@ -292,6 +340,7 @@ export default function Home() {
                 "SLA support",
                 "Dedicated success lead",
               ]}
+              delay={0.3}
             />
           </div>
         </section>
@@ -319,14 +368,17 @@ export default function Home() {
                 <DocFeature
                   title="Quickstart guide"
                   desc="Get up and running in minutes with step-by-step onboarding."
+                  delay={0.1}
                 />
                 <DocFeature
                   title="API reference"
                   desc="Use native integrations and automation endpoints with ease."
+                  delay={0.2}
                 />
                 <DocFeature
                   title="Security guide"
                   desc="Learn how StudioPortal keeps client data protected at every layer."
+                  delay={0.3}
                 />
               </div>
             </div>
@@ -377,13 +429,21 @@ function FeatureCard({
   icon,
   title,
   desc,
+  delay = 0,
 }: {
   icon: ReactNode;
   title: string;
   desc: string;
+  delay?: number;
 }) {
   return (
-    <div className="flex flex-col items-start rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-8 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/20 hover:bg-zinc-900/80 group">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay }}
+      className="flex flex-col items-start rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-8 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/20 hover:bg-zinc-900/80 group"
+    >
       <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500/20 via-transparent to-slate-800/40 border border-zinc-800 text-cyan-300 transition duration-300 group-hover:scale-110 group-hover:bg-cyan-500/20">
         {icon}
       </div>
@@ -391,7 +451,7 @@ function FeatureCard({
         {title}
       </h3>
       <p className="text-zinc-400 leading-relaxed text-base">{desc}</p>
-    </div>
+    </motion.div>
   );
 }
 
@@ -399,13 +459,21 @@ function TrustItem({
   icon,
   title,
   desc,
+  delay = 0,
 }: {
   icon: ReactNode;
   title: string;
   desc: string;
+  delay?: number;
 }) {
   return (
-    <div className="flex gap-6 items-start">
+    <motion.div 
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      className="flex gap-6 items-start"
+    >
       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-zinc-900/50 border border-zinc-800 text-zinc-400">
         {cloneIcon(icon)}
       </div>
@@ -413,7 +481,7 @@ function TrustItem({
         <h4 className="text-xl font-bold text-zinc-100">{title}</h4>
         <p className="text-zinc-500 text-sm mt-1">{desc}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -423,15 +491,21 @@ function PricingCard({
   frequency,
   features,
   highlighted,
+  delay = 0,
 }: {
   title: string;
   price: string;
   frequency: string;
   features: string[];
   highlighted?: boolean;
+  delay?: number;
 }) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
       className={
         "rounded-[2rem] border p-8 transition-all " +
         (highlighted
@@ -468,27 +542,39 @@ function PricingCard({
       >
         {highlighted ? "Start growth" : "Choose plan"}
       </button>
-    </div>
+    </motion.div>
   );
 }
 
-function DocFeature({ title, desc }: { title: string; desc: string }) {
+function DocFeature({ title, desc, delay = 0 }: { title: string; desc: string; delay?: number }) {
   return (
-    <div className="rounded-3xl border border-zinc-800 bg-zinc-900/70 p-6 text-zinc-100">
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      className="rounded-3xl border border-zinc-800 bg-zinc-900/70 p-6 text-zinc-100"
+    >
       <h4 className="text-xl font-semibold">{title}</h4>
       <p className="mt-3 text-sm leading-6 text-zinc-400">{desc}</p>
-    </div>
+    </motion.div>
   );
 }
 
-function StatCard({ value, label }: { value: string; label: string }) {
+function StatCard({ value, label, delay = 0 }: { value: string; label: string; delay?: number }) {
   return (
-    <div className="rounded-[1.75rem] border border-zinc-800/70 bg-zinc-950/80 p-6 text-center transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-zinc-900/80">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      className="rounded-[1.75rem] border border-zinc-800/70 bg-zinc-950/80 p-6 text-center transition duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-zinc-900/80"
+    >
       <p className="text-4xl font-bold tracking-tight text-white">{value}</p>
       <p className="mt-3 text-sm uppercase tracking-[0.35em] text-zinc-500">
         {label}
       </p>
-    </div>
+    </motion.div>
   );
 }
 
