@@ -59,10 +59,11 @@ export function Sidebar() {
           );
         })}
       </nav>
-      <div className="p-4 border-t border-zinc-800/80">
-        <button className="group flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-400 transition-all hover:bg-zinc-800/50 hover:text-rose-400">
-          <LogOut className="h-5 w-5 text-zinc-500 transition-transform duration-300 group-hover:rotate-12 group-hover:text-rose-400" />
-          Sign Out
+      <div className="p-4 border-t border-zinc-800/80 mt-auto">
+        <button className="group relative flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-zinc-400 transition-all duration-300 hover:bg-rose-500/10 hover:text-rose-400 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-rose-500/0 via-rose-500/5 to-transparent -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+          <LogOut className="relative z-10 h-5 w-5 text-zinc-500 transition-transform duration-300 group-hover:rotate-[15deg] group-hover:scale-110 group-hover:text-rose-400" />
+          <span className="relative z-10">Sign Out</span>
         </button>
       </div>
     </aside>

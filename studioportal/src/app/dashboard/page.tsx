@@ -36,7 +36,7 @@ export default function DashboardPage() {
         className="flex flex-col md:flex-row justify-between md:items-end gap-4"
       >
         <div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">Overview</h1>
+          <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-white to-zinc-500 tracking-tight">Overview</h1>
           <p className="text-zinc-400 mt-1">Here is what's happening with your studio today.</p>
         </div>
         <motion.button 
@@ -68,7 +68,7 @@ export default function DashboardPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="lg:col-span-2 rounded-[2rem] border border-zinc-800/80 bg-zinc-950/40 p-6 shadow-xl shadow-black/20 backdrop-blur-md"
+          className="lg:col-span-2 rounded-[2rem] glass-panel p-7"
         >
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-white tracking-tight">Active Projects</h2>
@@ -91,7 +91,7 @@ export default function DashboardPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="rounded-[2rem] border border-zinc-800/80 bg-zinc-950/40 p-6 shadow-xl shadow-black/20 backdrop-blur-md"
+          className="rounded-[2rem] glass-panel p-7"
         >
           <h2 className="text-xl font-bold text-white tracking-tight mb-6">Recent Activity</h2>
           <motion.div 
@@ -113,8 +113,9 @@ export default function DashboardPage() {
 
 function StatCard({ title, value, change, icon: Icon, isNegative = false }: any) {
   return (
-    <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="group rounded-[1.5rem] border border-zinc-800/80 bg-zinc-950/40 p-5 shadow-lg shadow-black/20 transition-all duration-300 hover:bg-zinc-900/60 hover:border-cyan-500/30">
-      <div className="flex items-center justify-between">
+    <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="group rounded-[1.5rem] glass-panel p-6 transition-all duration-300 hover:border-cyan-500/40 hover:-translate-y-1 hover:shadow-[0_15px_40px_-10px_rgba(34,211,238,0.15)] relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-transparent to-cyan-500/0 group-hover:from-cyan-500/5 group-hover:to-transparent transition-all duration-500" />
+      <div className="flex items-center justify-between relative z-10">
         <p className="text-sm font-medium text-zinc-400">{title}</p>
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-500 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/20 group-hover:text-cyan-400 transition-all duration-300">
           <Icon className="h-5 w-5" />
@@ -135,15 +136,16 @@ function ProjectRow({ name, client, status, progress }: any) {
   return (
     <motion.div 
       variants={{ hidden: { opacity: 0, x: -20 }, show: { opacity: 1, x: 0 } }}
-      className="group flex items-center justify-between rounded-2xl border border-zinc-800/40 bg-zinc-950/20 p-3 transition-all duration-300 hover:scale-[1.01] hover:border-cyan-500/30 hover:bg-zinc-900/60 hover:shadow-[0_0_20px_rgba(34,211,238,0.05)] cursor-pointer"
+      className="group flex items-center justify-between rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition-all duration-300 hover:scale-[1.02] hover:border-cyan-500/30 hover:bg-white/[0.04] hover:shadow-[0_0_30px_rgba(34,211,238,0.1)] cursor-pointer relative overflow-hidden"
     >
-      <div className="flex items-center gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-500 group-hover:text-cyan-400 group-hover:border-cyan-500/20 transition-all duration-300">
+      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/0 to-cyan-500/0 group-hover:from-cyan-500/5 group-hover:to-transparent transition-all duration-500" />
+      <div className="flex items-center gap-4 relative z-10">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-900/80 border border-zinc-800/80 text-zinc-400 group-hover:text-cyan-400 group-hover:border-cyan-500/30 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all duration-300">
           <Briefcase className="h-5 w-5" />
         </div>
         <div>
-          <h4 className="text-sm font-bold text-zinc-100 group-hover:text-white transition-colors">{name}</h4>
-          <p className="text-xs text-zinc-500 mt-0.5">{client}</p>
+          <h4 className="text-sm font-bold text-zinc-200 group-hover:text-white transition-colors">{name}</h4>
+          <p className="text-xs text-zinc-500 group-hover:text-cyan-100/50 transition-colors mt-0.5">{client}</p>
         </div>
       </div>
       <div className="hidden md:flex flex-col items-end gap-2 w-32">
