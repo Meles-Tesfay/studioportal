@@ -12,12 +12,28 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const [passwordError, setPasswordError] = useState<string | null>(null);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
+    setEmailError(null);
+    setPasswordError(null);
     if (!email || !password) {
       setError("Please enter both email and password.");
+      return;
+    }
+
+    // Basic client-side validation
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    if (!emailRegex.test(email)) {
+      setEmailError("Please enter a valid email address.");
+      return;
+    }
+
+    if (password.length < 8) {
+      setPasswordError("Password must be at least 8 characters.");
       return;
     }
 
@@ -145,13 +161,20 @@ export default function LoginPage() {
                   name="email"
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (emailError) setEmailError(null);
+                    if (error) setError(null);
+                  }}
                   placeholder="you@agency.com"
                   autoComplete="email"
                   className="h-11 w-full rounded-xl border border-zinc-800 bg-zinc-950/70 pl-11 pr-4 text-sm text-zinc-100 placeholder:text-zinc-600 outline-none transition focus:border-indigo-500/60 focus:ring-2 focus:ring-indigo-500/10"
                   required
                   disabled={loading}
                 />
+                {emailError ? (
+                  <p className="mt-1 text-xs text-red-300">{emailError}</p>
+                ) : null}
                 <p className="mt-1 text-xs text-zinc-500">
                   We'll never share your email — only used for account access.
                 </p>
@@ -205,13 +228,20 @@ export default function LoginPage() {
                   name="password"
                   type={showPassword ? "text" : "password"}
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    if (passwordError) setPasswordError(null);
+                    if (error) setError(null);
+                  }}
                   autoComplete="current-password"
                   placeholder="Enter your password"
                   className="h-11 w-full rounded-xl border border-zinc-800 bg-zinc-950/70 pl-11 pr-12 text-sm text-zinc-100 placeholder:text-zinc-600 outline-none transition focus:border-indigo-500/60 focus:ring-2 focus:ring-indigo-500/10"
                   required
                   disabled={loading}
                 />
+                {passwordError ? (
+                  <p className="mt-1 text-xs text-red-300">{passwordError}</p>
+                ) : null}
                 <button
                   type="button"
                   onClick={() => setShowPassword((s) => !s)}
